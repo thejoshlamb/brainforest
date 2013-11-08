@@ -1,2 +1,8 @@
 <h1>Products#show</h1>
 <p>Find me in app/views/products/show.html.erb</p>
+<h4><%= @product[:name] %></h4>
+<%= @product[:description] %>
+$<%= @product[:price_in_cents].to_f / 100  %>
+<p>
+<%= link_to "Index", products_url %>
+</p>
