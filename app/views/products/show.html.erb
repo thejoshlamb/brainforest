@@ -4,5 +4,7 @@
 <%= @product[:description] %>
 $<%= @product[:price_in_cents].to_f / 100  %>
 <p>
-<%= link_to "Index", products_url %>
+	<%= link_to "Delete this product", @picture, :method => :delete %>
+<p>
+	<%= link_to "Index", products_url %>
 </p>
