@@ -1,8 +1,6 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
 <h4><%= @product[:name] %></h4>
 <%= @product[:description] %>
-$<%= @product[:price_in_cents].to_f / 100  %>
+$<%= @product.formatted_price %>
 <p>
 	<%= link_to "Delete this product", @picture, :method => :delete %>
 <p>
