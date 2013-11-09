@@ -1,0 +1,28 @@
+<%= form_for([@product, @review]) do |f| %>
+
+<% if @review.errors.any?  %>
+	<div id = "error_explanation">
+		<ul>
+			<%= @review.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end  %>
+
+
+<div class = "field">
+	<%= f.text_area :comment %>
+</div>
+<div class = "field">
+	<%= f.radio_button :rating, -1 %>
+	<%= f.label :rating_dislike, "Dislike" %>
+	<%= f.radio_button :rating, 0 %>
+	<%= f.label :rating_indifferent, "Indifferent" %>
+	<%= f.radio_button :rating, 1 %>
+	<%= f.label :rating_like, "Like" %>
+</div>
+<div class = "actions"> 
+	<%= f.submit %> 
+</div>
+<% end  %>
