@@ -1,0 +1,9 @@
+<div class = "user_info">
+	<% if current_user %>
+<h4><%= @user[:nick] %>'s profile</h4>
+<img src ="<%= @user.avatar %>" alt ="AVATAR">
+<% end %>
+
+<p>
+	<%= link_to "Index", products_url %>
+</p>

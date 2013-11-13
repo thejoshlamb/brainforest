@@ -1,8 +1,31 @@
-<h4><%= @product[:name] %></h4>
-<%= @product[:description] %>
-$<%= @product.formatted_price %>
+<div class = "product_info">
+	<div class = "image_gallery">
+		<div class = "five_image_container">
+			<%= render "product_images" %>
+		</div>
+	</div>
+	<h4><%= @product[:name] %></h4>
+	<p><%= @product[:description] %></p>
+	<p>$<%= @product.formatted_price %></p>
+	<p>by <em><%= User.find(@product.user_id).nick %></em></p> 
+	<% if current_user %>
+		<%  if @product.user_id == current_user.id %>
+			<p> <%= link_to "[x]", @product, :method => :delete %>
+			<%= link_to "[e]", edit_product_url %></p>
+		<%  end  %>
+	<% end  %>
+</div>
+<% unless current_user %>
+<p><em>Log in to read and post reviews</em><p>
+<% end %>
 
-<% if current_user  %> <!-- make a partial of this later -->
+<div class = "rating">
+	<% if @product.reviews.count > 2 %>
+	average approval: <%= @product.average_rating %>%
+	<% end %>
+</div>
+
+<% if current_user %> <!-- make a partial of this later -->
 	<div class = "reviews">
 		<h5>reviews for <%= @product.name %></h5>
 		<% if @product.reviews.count > 0 %>
@@ -11,6 +34,9 @@ $<%= @product.formatted_price %>
 				<p> rated : <%= review.rating %> <p>
 				<% if review.user != nil  %>
 					<p> by <strong> <%= review.user.nick %></strong> on <em> <%= review.created_at %></em> </p> 
+					<% if review.user_id == current_user.id %>
+						<p> <%= link_to "[x]", product_review_path(@product.id, review.id), :method => :delete %></p>
+					<% end  %>
 				<% end  %>
 			<% end %>
 			<% else %>
@@ -22,8 +48,6 @@ $<%= @product.formatted_price %>
 	</div>
 <% end %>
 
-<p>
-	<%= link_to "Delete this product", @picture, :method => :delete %>
 <p>
 	<%= link_to "Index", products_url %>
 </p>

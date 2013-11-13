@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_filter  :ensure_logged_in, :only => [:show]
+  before_filter  :ensure_logged_in, :only => [:create, :edit, :update, :destroy]
 
   def index
   	@products = Product.all
@@ -13,10 +13,10 @@ class ProductsController < ApplicationController
   		@review = @product.reviews.build
   	end
 
-  	respond_to do |format|
-  		format.html #show.html.erb
-  		format.json { render json: @product }
-  	end
+  	#respond_to do |format|
+  	#	format.html #show.html.erb
+  	#	format.json { render json: @product }
+  	#end
   end
 
   def new
@@ -24,11 +24,12 @@ class ProductsController < ApplicationController
   end
 
   def edit
-  	@product = Product.new(params[:id])
+  	@product = Product.find(params[:id])
   end
 
   def create
   	@product = Product.new(product_params)
+    @product.user_id = current_user.id
   	if @product.save
   		redirect_to products_url
   	else
@@ -53,7 +54,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price_in_cents, :rating)
+    params.require(:product).permit( :name, :description, :price_in_cents, :rating, :user_id, :image1, :image2, :image3, :image4, :image5, :remove_image1, :remove_image2, :remove_image3, :remove_image4, :remove_image5,)
   end
 
 end

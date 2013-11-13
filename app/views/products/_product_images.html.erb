@@ -1,0 +1,25 @@
+	<div class = "image">
+	<%= link_to image_tag(@product.image1), @product.image1.url %>
+	</div>
+	<% if @product.image2? %>
+		<div class = "image">
+		<%= link_to image_tag(@product.image2), @product.image2.url %>
+		</div>
+	<% end  %>
+	<% if @product.image3?  %>
+		<div class = "image">
+		<%= link_to image_tag(@product.image3), @product.image3.url %>
+		</div>
+	<% end  %>
+	<% if @product.image4? %>
+		<div class = "image">
+		<%= link_to image_tag(@product.image4), @product.image4.url %>
+		</div>
+	<% end  %>
+	<% if @product.image5?  %>
+		<div class = "image">
+		<%= link_to image_tag(@product.image5), @product.image5.url %>
+		</div>
+	<% end  %>
+
+

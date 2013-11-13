@@ -1,11 +1,13 @@
-<h2>all products</h2>
+<h3>all products</h3>
 
-<p>
-	<%= link_to "New Product", new_product_url %>
-<p>
-
+<div class = "all_products">
 <ol>
 	<% @products.each do |product| %>
 	<li><%= link_to product[:name], "/products/#{product.id}" %></li>
 	<% end %>
 </ol>
+</div>
+
+<p>
+	<%= link_to "New Product", new_product_url %>
+<p>

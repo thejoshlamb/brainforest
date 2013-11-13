@@ -1,5 +1,4 @@
 <%= form_for @product do |f| %>
-
 	<% if @product.errors.any? %>
 		<div id = "product_form_error">
 			<h3>Can't save due to <%= pluralize(@product.errors.count, "error") %></h3>
@@ -10,7 +9,6 @@
 			</ul>
 		</div>
 	<% end %>
-	
 	<div class = "field" >
 		<%= f.label :name %>
 		<%= f.text_field :name %>
@@ -22,6 +20,10 @@
 	<div class = "field" >
 		<%= f.label :price_in_cents %>
 		<%= f.text_field :price_in_cents %>
+	</div>
+	<div class = "field">
+		<%= f.label :image %>
+		<%= f.file_field :image1 %>
 	</div>
 	<div class = "actions">
 		<%= f.submit %>

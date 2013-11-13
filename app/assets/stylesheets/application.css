@@ -12,6 +12,181 @@
  *= require_tree .
  */
 
-div {
-	border: 1px dashed grey;
+/* meyerweb CSS RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* end of CSS Reset */
+
+body {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 85%;
+}
+
+a:link {color:#007AFF}      /* unvisited link */
+a:visited {color:#007AFF}  /* visited link */
+a:hover {color:#FF9500}  /* mouse over link */
+a:active {color:#0000FF;}  /* selected link */
+
+h1 {
+	font-size: 3em;
+	display: inline-block;
+	margin: 5px;
+}
+
+h2 {
+	font-size: 1.8em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+h4 {
+	font-size: 1.4em;
+}
+
+h5 {
+	font-size: 1.2em;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-style: bold;
+}
+
+#container {
+	max-width: 1100px;
+	min-width: 600px;
+	min-height:700px;
+	border:1px solid #F7F7F7;
+	margin: -1px auto 0 auto;
+}
+
+#main {
+	padding: 30px 30px 50px 30px;
+}
+
+#header{
+	position:relative;
+	width: 100%;
+	color:white;
+	background-color:#007AFF;
+}
+
+#user_panel{
+	position:absolute;
+	right:0;
+	bottom:0;
+	margin:50px 4px 4px 0;
+}
+
+#header a:link {
+	color:white;
+}
+
+#header a:visited {
+	color:white;
+}
+
+#alert_space #alert{
+	width:100%;
+	background-color: #FF3A2D;
+	text-align:center;
+	color: white;
+}
+
+#alert_space #notice{
+	width:100%;
+	background-color: #D1EEFC;
+	text-align:center;
+	padding: 7px 0;
+}
+
+.image_gallery {
+	max-width:1000px;
+	height: 370px;
+	overflow: auto;
+	overflow-y:hidden;
+	white-space: nowrap;
+	margin: 0 auto;
+}
+
+.image {
+	display: inline-block;
+	padding: 10px;
+}
+
+.edit_image {
+	display: inline-block;
+	padding:10px;
+	border:1px solid grey;
+}
+
+.image img {
+	max-height:300px;
+	max-width:300px;
+}
+.edit_image img {
+	max-height:300px;
+	max-width:300px;
+}
+
+
+
+.image:hover{
+	border:1px solid #FFCC00;
+	padding:9px;
+}
+
+
+

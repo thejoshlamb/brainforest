@@ -1,2 +1,59 @@
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<h3>edit product</h3>
+<%= form_for @product, :html => {:multipart => true} do |f| %>
+	<% if @product.errors.any? %>
+		<div id = "product_form_error">
+			<h3>Can't save due to <%= pluralize(@product.errors.count, "error") %></h3>
+			<ul>
+				<% @product.errors.full_messages.each do |error_message| %>
+					<li><%= error_message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class = "image_gallery">
+		<div class = "five_image_container">
+			<div class = "edit_image">
+				<%= link_to image_tag(@product.image1), @product.image1.url %>
+					<p><%= f.file_field :image1 %><p>
+			</div>
+
+			<div class = "edit_image">
+				<%= link_to image_tag(@product.image2), @product.image2.url %>
+					<p><%= f.file_field :image2 %><p>	
+    			
+			</div>
+
+			<div class = "edit_image">
+				<%= link_to image_tag(@product.image3), @product.image3.url %>
+					<p><%= f.file_field :image3 %><p>	
+			</div>
+
+			<div class = "edit_image">
+				<%= link_to image_tag(@product.image4), @product.image4.url%>
+					<p><%= f.file_field :image4 %><p>	
+			</div>
+
+			<div class = "edit_image">
+				<%= link_to image_tag(@product.image5), @product.image5.url %>
+					<p><%= f.file_field :image5 %><p>	
+			</div>
+		</div>
+	</div>
+	<div class = "field" >
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class = "field" >
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+	</div>
+	<div class = "field" >
+		<%= f.label :price_in_cents %>
+		<%= f.text_field :price_in_cents %>
+	</div>
+	<div class = "actions">
+		<%= f.submit %>
+	</div>
+<% end %>
+
+<%= link_to 'Back', product_path %>

@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  description: MyText
-  price_in_cents: 1
-  rating: 1
+moon_boots:
+  name: "Tecnica Moon Boots"
+  description: "Original from Italy by Tecnica - made in super lightweight materials, water-resistant and very warm! - 35C."
+  price_in_cents: 4900000
+  rating: 0
 
-two:
-  name: MyString
-  description: MyText
-  price_in_cents: 1
-  rating: 1
+beans:
+	name: "Beans!"
+	description: "Some beans. yay."
+	price_in_cents: 500
+	rating: 1
+
+moustache:
+	name: "Luxurious Moustache"
+	description: "The finest lip hair"
+	price_in_cents: 750000
+	rating: -1

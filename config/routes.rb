@@ -1,13 +1,12 @@
 Brainforest::Application.routes.draw do
-  get "reviews/show"
-  get "reviews/new"
-  get "reviews/edit"
+
   root "products#index"
 
   resources :products do
     resources :reviews, :except => [:index]
   end
-  resources :users, :only => [:new, :create]
+  
+  resources :users, :only => [:new, :create, :show]
   resources :sessions, :only => [:new, :create, :destroy]
   
   # The priority is based upon order of creation: first created -> highest priority.
