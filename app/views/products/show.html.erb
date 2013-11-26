@@ -25,29 +25,14 @@
 	<% end %>
 </div>
 
-<% if current_user %> <!-- make a partial of this later -->
-	<div class = "reviews">
-		<h5>reviews for <%= @product.name %></h5>
-		<% if @product.reviews.count > 0 %>
-			<% @product.reviews.reverse.each do |review|  %>
-				<p> <%= review.comment %> </p>
-				<p> rated : <%= review.rating %> <p>
-				<% if review.user != nil  %>
-					<p> by <strong> <%= review.user.nick %></strong> on <em> <%= review.created_at %></em> </p> 
-					<% if review.user_id == current_user.id %>
-						<p> <%= link_to "[x]", product_review_path(@product.id, review.id), :method => :delete %></p>
-					<% end  %>
-				<% end  %>
-			<% end %>
-			<% else %>
-				<em> no reviews yet! </em>
-		<% end  %>
-	</div>
-	<div class = "new_review"> 
-		<%= render "review_form" %> 
-	</div>
+<% if current_user %>
+<div class = "reviews">
+	<%= render "reviews" %> 
+</div>
+	<%= render "review_form" %> 
 <% end %>
 
 <p>
 	<%= link_to "Index", products_url %>
 </p>
+

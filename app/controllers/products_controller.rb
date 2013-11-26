@@ -10,13 +10,8 @@ class ProductsController < ApplicationController
   	@product = Product.find(params[:id])
 
   	if current_user
-  		@review = @product.reviews.build
+      @review = Review.new
   	end
-
-  	#respond_to do |format|
-  	#	format.html #show.html.erb
-  	#	format.json { render json: @product }
-  	#end
   end
 
   def new

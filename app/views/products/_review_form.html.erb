@@ -1,5 +1,5 @@
-<%= form_for([@product, @review]) do |f| %>
-
+<%= form_for([@product, @review], :remote => true) do |f| %>
+<div class = "newreview"> 
 <% if @review.errors.any?  %>
 	<div id = "error_explanation">
 		<ul>
@@ -12,9 +12,9 @@
 
 
 <div class = "field">
-	<%= f.text_area :comment %>
+	<%= f.text_area :comment, :size => "60x4" %>
 </div>
-<div class = "field">
+<div class = "radio_field">
 	<%= f.radio_button :rating, -1 %>
 	<%= f.label :rating_dislike, "Dislike" %>
 	<%= f.radio_button :rating, 0 %>
@@ -25,4 +25,11 @@
 <div class = "actions"> 
 	<%= f.submit %> 
 </div>
+</div>
 <% end  %>
+
+<script type="text/javascript">
+	$('form')
+	.on('ajax:beforeSend',function(){ $("input[type='submit']").val("Saving...").attr('disabled','disabled');})
+	.on('ajax:complete',function(){ $("input[type='submit']").val("Submit").removeAttr('disabled');})
+</script>

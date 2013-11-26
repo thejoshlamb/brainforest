@@ -12,16 +12,18 @@ class ReviewsController < ApplicationController
   	@review = @product.reviews.build(review_params)
   	@review.user_id = current_user.id
 
-  	# @review = Review.new
-  	#  :comment => params[:review][:comment]
-  	#  :product_id => @product_id
-  	#  :user_id => current_user.id
+    sleep(1)
 
-  	if @review.save
-  		redirect_to product_path(params[:id]), notice: 'Review posted!'
-  	else
-  		render :action => :show
-  	end
+    respond_to do |format|
+    	if @review.save
+    		format.html{ redirect_to product_path(params[:id]), notice: 'Review posted!'}
+        format.js {} # This will look for app/views/reviews/create.js.erb
+        # format.json { @review } to return as a json object
+    	else
+    		format.html{ render :action => :show }
+        format.js {} # This will look for app/views/reviews/create.js.erb
+    	end
+    end
   end
 
   def destroy
